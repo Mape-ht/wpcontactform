@@ -23,5 +23,23 @@ function contact_form_custom(){
 
 add_shortcode('contact_form','contact_form_custom');
 
+function example_form_capture(){
+
+if(isset($_POST['contact_form_submit'])){
+
+    echo "<pre>";print_r($_POST);echo"</pre>";   
+    //$name = sanitize_text_field($_POST['your_name']);
+    //$email = sanitize_text_field($_POST['your_email']);
+    //$comments = sanitize_text_field($_POST['your_comments']);
+
+    //$to = 'hantamp@gmail.com';
+    //$subject = 'Test pour submission';
+    //$message = ''.$name.' - '.$email.' - '.$comments;
+
+    //wp_mail($to,$subject,$subject);
+}
+}
+add_action('wp_head','example_form_capture');
+
 
 ?>
