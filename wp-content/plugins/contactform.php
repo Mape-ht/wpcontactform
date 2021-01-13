@@ -8,7 +8,7 @@ function contact_form_custom(){
     $content = '';
     
     $content .='<h2>Formulaire de contact</h2>';
-    $content .='<form method="post" action"http://localhost/wpplugin/wpcontactform/merci/">';
+    $content .='<form method="post" action="http://localhost/wpplugin/wpcontactform/merci/">';
     $content .='<label for="your_name">Nom</label>';
     $content .='<br/><input type="text" name="your_name" class="form-control" placeholder="Entrez votre nom" />';
     $content .='<br/><label for="your_email">Email</label>';
@@ -27,16 +27,16 @@ function example_form_capture(){
 
 if(isset($_POST['contact_form_submit'])){
 
-    echo "<pre>";print_r($_POST);echo"</pre>";   
-    //$name = sanitize_text_field($_POST['your_name']);
-    //$email = sanitize_text_field($_POST['your_email']);
-    //$comments = sanitize_text_field($_POST['your_comments']);
+    //echo "<pre>";print_r($_POST);echo"</pre>";   
+    $name = sanitize_text_field($_POST['your_name']);
+    $email = sanitize_text_field($_POST['your_email']);
+    $comments = sanitize_text_field($_POST['your_comments']);
 
-    //$to = 'hantamp@gmail.com';
-    //$subject = 'Test pour submission';
-    //$message = ''.$name.' - '.$email.' - '.$comments;
+    $to = 'hantamp@gmail.com';
+    $subject = 'Test pour submission';
+    $message = ''.$name.' - '.$email.' - '.$comments;
 
-    //wp_mail($to,$subject,$subject);
+    wp_mail($to,$subject,$subject);
 }
 }
 add_action('wp_head','example_form_capture');
